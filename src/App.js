@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom';
-import LoginForm from './Login';
+import LoginForm from './Pages/LoginPage/Login';
 import './App.css';
 
 class App extends Component {
@@ -8,10 +8,8 @@ class App extends Component {
     return (
       <Router basename="/react-auth-ui/">
         <div className="App">
-        <Route exact path="/" component={LoginForm}>
-              </Route>
-
-    </div>
+          <Route exact path="/" component={LoginForm}></Route>
+        </div>
       </Router>
     );
   }
