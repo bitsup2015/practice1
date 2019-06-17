@@ -31,13 +31,14 @@ class Login extends Component {
     }
     render() {
     return (
-        <div className="Login">
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="userName">Username</label>
-                <input type="text" id="userName" name="userName"  value={this.state.userName}  onChange={this.handleChange} placeholder="enter your username" />
-                <label htmlFor="password">Password</label>
-                <input type="text" id="password" name="password" value={this.state.password}  onChange={this.handleChange} placeholder="enter your password" />
-                <button>Sign In</button>
+        <div className="loginWrap">
+            <form onSubmit={this.handleSubmit} className="loginForm">
+                <label className="loginTitle">Login</label>
+                <label htmlFor="userName" className="loginFromLabel">Username</label>
+                <input className="loginFormInput" type="text" id="userName" name="userName"  value={this.state.userName}  onChange={this.handleChange} placeholder="Enter your username" />
+                <label htmlFor="password" className="loginFromLabel">Password</label>
+                <input className="loginFormInput" type="text" id="password" name="password" value={this.state.password}  onChange={this.handleChange} placeholder="Enter your password" />
+                <button className="loginFormButton">Sign In</button>
             </form>
         </div>
     );
