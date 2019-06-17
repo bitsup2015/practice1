@@ -1,0 +1,39 @@
+[debug] [2019-06-17T13:24:23.553Z] ----------------------------------------------------------------------
+[debug] [2019-06-17T13:24:23.563Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Byambatsogt\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-06-17T13:24:23.563Z] CLI Version:   7.0.0
+[debug] [2019-06-17T13:24:23.564Z] Platform:      win32
+[debug] [2019-06-17T13:24:23.564Z] Node Version:  v11.11.0
+[debug] [2019-06-17T13:24:23.565Z] Time:          Mon Jun 17 2019 21:24:23 GMT+0800 (Ulaanbaatar Standard Time)
+[debug] [2019-06-17T13:24:23.565Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-17T13:24:23.641Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-17T13:24:23.642Z] > authorizing via signed-in user
+[debug] [2019-06-17T13:24:23.642Z] [iam] checking project practicedb-ebea9 for permissions ["firebase.projects.get"]
+[debug] [2019-06-17T13:24:23.645Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-17T13:24:23.646Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-06-17T13:24:24.133Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-17T13:24:24.236Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/practicedb-ebea9:testIamPermissions  
+
+[debug] [2019-06-17T13:24:25.577Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-17T13:24:25.580Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/practicedb-ebea9  
+ 
+[debug] [2019-06-17T13:24:27.565Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\reactjs\practice1'...
+[info] 
+[warn] !  Your requested "node" version "8" doesn't match your global version "11"
+[debug] [2019-06-17T13:24:27.616Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/637220433502/clients/_:getWebAppConfig  
+ 
+[debug] [2019-06-17T13:24:27.618Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/637220433502:getServerAppConfig  
+ 
+[debug] [2019-06-17T13:24:28.411Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-17T13:24:28.689Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "E:\reactjs\practice1\functions" for Cloud Functions...
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2019-06-17T13:24:29.703Z] Functions runtime initialized.
+[debug] [2019-06-17T13:24:29.706Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
