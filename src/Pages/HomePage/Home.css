@@ -1,0 +1,22 @@
+.homeWrap {
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  color:#000000;
+  margin: 20% auto 0 auto;
+}
+
+.logOutButton {
+  height: 35px;
+  margin: 15px;
+  width: 200px;
+  background: #f94606;
+  border: 1px solid black;
+  border-radius: 2px;
+  color: black;
+  font-weight: bold;
+}
+
