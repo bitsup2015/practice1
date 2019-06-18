@@ -1,50 +1,62 @@
 import React, { Component } from 'react';
 import './Login.css';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            userName: '',
-            password: ''
+            email: '',
+            password: '',
+            toHome: false
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.db = props.db;
+        this.changeEmail = this.changeEmail.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.signIn = this.signIn.bind(this);
     }
 
-    handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
-
-        this.setState({
-          [name]: value
-        });
+    changeEmail(event) {
+        this.setState({email: event.target.value});
     }
 
-    handleSubmit(e) {
+    changePassword(event) {
+        this.setState({password: event.target.value});
+    }
+    
+    signIn(e) {
         e.preventDefault();
 
-        console.log('The form was submitted with the following data:');
-        console.log(this.state);
+        this.db.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => {
+                this.setState({toHome: true});
+            }).catch(function(error) {
+                console.log(error);
+            }
+        );
     }
+
     render() {
-    return (
-        <div className="loginWrap">
-            <form onSubmit={this.handleSubmit} className="loginForm">
-                <label className="loginTitle">Login</label>
-                <label htmlFor="userName" className="loginFromLabel">Username</label>
-                <input className="loginFormInput" type="text" id="userName" name="userName"  value={this.state.userName}  onChange={this.handleChange} placeholder="Enter your username" />
-                <label htmlFor="password" className="loginFromLabel">Password</label>
-                <input className="loginFormInput" type="text" id="password" name="password" value={this.state.password}  onChange={this.handleChange} placeholder="Enter your password" />
-                <button className="loginFormButton">Sign In</button>
-                <a className="loginFormLink" href="/register">Register</a>
-            </form>
-        </div>
-    );
-}
+        if (this.state.toHome) {
+            return <Redirect to='/home'/>;
+        } else {
+            return (
+                <div className="loginWrap">
+                    <form className="loginForm">
+                        <label className="loginTitle">Login</label>
+                        <label htmlFor="email" className="loginFromLabel">Email</label>
+                        <input className="loginFormInput" type="text" id="email" name="email"  value={this.state.email}  onChange={this.changeEmail} placeholder="Enter your email" />
+                        <label htmlFor="password" className="loginFromLabel">Password</label>
+                        <input className="loginFormInput" type="text" id="password" name="password" value={this.state.password}  onChange={this.changePassword} placeholder="Enter your password" />
+                        <button className="loginFormButton" onClick={this.signIn}>Sign In</button>
+                        <a className="loginFormLink" href="/register">Register</a>
+                    </form>
+                </div>
+            );
+        }
+    }
 }
 
 export default Login;
