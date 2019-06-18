@@ -1,48 +1,61 @@
 import React, { Component } from 'react';
 import './Register.css';
+import { Redirect } from 'react-router-dom';
+
 class Register extends Component {
-    constructor() {
-        super();
+    constructor(props){
+        super(props)
 
         this.state = {
-            userName: '',
-            password: ''
+            email: '',
+            password: '',
+            toLogin: false
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.db = props.db;
+        this.register = this.register.bind(this);
+        this.changeEmail = this.changeEmail.bind(this);
+        this.changePassword = this.changePassword.bind(this);
     }
 
-    handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
-
-        this.setState({
-          [name]: value
-        });
-    }
-
-    handleSubmit(e) {
+    register(e) {
         e.preventDefault();
 
-        console.log('The form was submitted with the following data:');
-        console.log(this.state);
+        this.db.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => {
+                this.setState({toLogin: true});
+            }).catch(function(error) {
+                console.log(error);
+            }
+        );
     }
+
+    changeEmail(event) {
+        this.setState({email: event.target.value});
+    }
+
+    changePassword(event) {
+        this.setState({password: event.target.value});
+    }
+
     render() {
-    return (
-        <div className="registerWrap">
-            <form onSubmit={this.handleSubmit} className="registerForm">
-                <label className="registerTitle">Register</label>
-                <label htmlFor="userName" className="registerFromLabel">Username</label>
-                <input className="registerFormInput" type="text" id="userName" name="userName"  value={this.state.userName}  onChange={this.handleChange} placeholder="Enter your username" />
-                <label htmlFor="password" className="registerFromLabel">Password</label>
-                <input className="registerFormInput" type="text" id="password" name="password" value={this.state.password}  onChange={this.handleChange} placeholder="Enter your password" />
-                <button className="registerFormButton">Register</button>
-            </form>
-        </div>
-    );
-}
+        if (this.state.toLogin) {
+            return <Redirect to='/login' />;
+        } else {
+            return (
+                <div className="registerWrap">
+                    <form className="registerForm">
+                        <label className="registerTitle">Register</label>
+                        <label htmlFor="email" className="registerFromLabel">Email</label>
+                        <input className="registerFormInput" type="text" name="email"  value={this.state.email}  onChange={this.changeEmail} placeholder="Enter your email" />
+                        <label htmlFor="password" className="registerFromLabel">Password</label>
+                        <input className="registerFormInput" type="text" id="password" name="password" value={this.state.password}  onChange={this.changePassword} placeholder="Enter your password" />
+                        <button className="registerFormButton" onClick={this.register}>Register</button>
+                    </form>
+                </div>
+            );
+        }
+    }
 }
 
 export default Register;
