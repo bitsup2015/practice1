@@ -1,0 +1,63 @@
+.registerWrap {
+  text-align: center;
+  height: 400px;
+  width: 350px;
+  margin: 10% auto 0px auto;
+  border: 1px solid #3d70e6;
+  border-radius: 10px;
+  background: #3d70e6;
+  -webkit-box-shadow: 2px 2px 10px 0px #555555;
+  -moz-box-shadow: 2px 2px 10px 0px rgba(85,85,85,1);
+  box-shadow: 2px 2px 10px 0px rgba(85,85,85,1);
+}
+
+.registerForm {
+  margin: 50px auto;
+  width: 250px;
+}
+
+.registerTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  display: block;
+  color: #FFFFFF;
+}
+.registerFromLabel {
+  margin: 10px 0px 5px 0px;
+  font-size: 14px;
+  text-align: left;
+  display: block;
+  color: #FFFFFF;
+}
+
+.registerFormInput {
+  width: 250px;
+  height: 35px;
+  font-size: 16px;
+  padding: 0px 10px;
+  border: 1px solid #f13e3e;
+  border-radius: 2px;
+  display: block;
+  margin: auto;
+}
+
+.registerFormButton {
+  width: 250px;
+  height: 35px;
+  border-radius: 2px;
+  border: 1px solid #f13e3e;
+  background: #FFFFFF;
+  color: #f13e3e;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px 0px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgb(103, 103, 103);
+  -moz-box-shadow: 2px 2px 5px 0px rgb(103, 103, 103);
+  box-shadow: 2px 2px 5px 0px rgb(103, 103, 103);
+}
+
+.registerFormLink {
+  color: white;
+}
+  
