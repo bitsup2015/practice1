@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+
 class Login extends Component {
     constructor() {
         super();
@@ -39,6 +40,7 @@ class Login extends Component {
                 <label htmlFor="password" className="loginFromLabel">Password</label>
                 <input className="loginFormInput" type="text" id="password" name="password" value={this.state.password}  onChange={this.handleChange} placeholder="Enter your password" />
                 <button className="loginFormButton">Sign In</button>
+                <a className="loginFormLink" href="/register">Register</a>
             </form>
         </div>
     );
