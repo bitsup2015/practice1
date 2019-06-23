@@ -28,7 +28,7 @@ class Login extends Component {
     
     signIn(e) {
         e.preventDefault();
-
+        this.setState({email: 'tbeta40@gmail.com', password: 'Test1234'});
         this.db.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
                 this.setState({toHome: true});
